@@ -1,0 +1,2 @@
+Falta arreglar una vista como tal que es cuando el administrador crea un colaborador y debe botar un mensaje de interrupcion de creado y mandarlo a la vista de empleados en el sistema.
+Tambien falta que se limpien las celdas de editar perfil en la vista de perfil administrador y colaborador para que no aparezca nombres de alguien que lo utilizo.
