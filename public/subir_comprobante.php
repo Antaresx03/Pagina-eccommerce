@@ -4,8 +4,10 @@ session_start();
 
 // Validar sesión
 if (!isset($_SESSION['cliente_email'])) {
-    die("Acceso denegado. Debes iniciar sesión.");
-}
+    header("Location: ClienteLogin.php");
+    exit();
+  }
+  
 
 $conn = Database::conectar();
 $message = '';

@@ -3,7 +3,10 @@ session_start();
 require_once '../database/database.php';
 $conn = Database::conectar();
 $ordenes = $conn->query("SELECT * FROM ordenes ORDER BY fecha DESC")->fetchAll(PDO::FETCH_ASSOC);
-
+if (!isset($_SESSION['usuario']) || !in_array($_SESSION['usuario']['rol'], ['admin', 'colaborador'])) {
+  header('Location: login.php');
+  exit();
+}
 // Capturar y eliminar el mensaje de éxito si existe
 $mensaje_estado = '';
 if (isset($_SESSION['mensaje_estado'])) {

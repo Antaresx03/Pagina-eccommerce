@@ -7,10 +7,11 @@ use Dompdf\Dompdf;
 session_start();
 
 // Verificamos que el cliente esté logueado
-if (!isset($_SESSION['cliente_email']) || !isset($_SESSION['cliente_nombre'])) {
-    die("Acceso no autorizado. Debes iniciar sesión.");
-}
-
+if (!isset($_SESSION['cliente_email'])) {
+    header("Location: ClienteLogin.php");
+    exit();
+  }
+  
 // Recibir productos
 $productos = isset($_POST['productos_json']) ? json_decode($_POST['productos_json'], true) : [];
 
